@@ -1,6 +1,8 @@
 buildscript {
     dependencies {
         classpath rootProject.ext.androidPlugin
+        classpath rootProject.ext.bintrayPlugin
+        classpath rootProject.ext.mavenGradlePlugin
     }
 }
 
@@ -23,5 +25,3 @@ android {
 dependencies {
     compile project(':android-iconify')
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')

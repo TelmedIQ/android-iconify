@@ -1,1 +1,1 @@
--keep class com.joanzapata.iconify.** { *; }
+-keep class com.telmediq.iconify.** { *; }

@@ -1,6 +1,8 @@
 buildscript {
     dependencies {
         classpath rootProject.ext.androidPlugin
+        classpath rootProject.ext.bintrayPlugin
+        classpath rootProject.ext.mavenGradlePlugin
     }
 }
 
@@ -15,11 +17,11 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.joanzapata.android.icons.sample"
-        minSdkVersion 8
+        applicationId "com.telmediq.android.icons.sample"
+        minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.compileSdkVersion
-        versionCode VERSION_CODE.toInteger()
-        versionName VERSION_NAME
+        versionCode 1
+        versionName "1.0.0"
     }
 
     def password = project.hasProperty('ICONIFY_SAMPLE_KEYSTORE_PASSWORD') ?
@@ -47,9 +49,9 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:recyclerview-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
+    compile "com.android.support:appcompat-v7:${rootProject.ext.androidSupportVersion}"
+    compile "com.android.support:recyclerview-v7:${rootProject.ext.androidSupportVersion}"
+    compile "com.android.support:design:${rootProject.ext.androidSupportVersion}"
     compile 'com.jakewharton:butterknife:7.0.1'
 
     compile project(':android-iconify-fontawesome')
@@ -62,5 +64,3 @@ dependencies {
     compile project(':android-iconify-weathericons')
     compile project(':android-iconify-simplelineicons')
 }
-
-apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
